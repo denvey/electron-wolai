@@ -11,3 +11,5 @@ Electron wolai 客户端（非官方）
 - npm run dev
 - npm run build
 
+![](https://raw.githubusercontent.com/denvey/electron-wolai/master/screenshot/1.png)
+
