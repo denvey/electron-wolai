@@ -1,0 +1,76 @@
+{
+  "name": "wolai",
+  "version": "1.0.0",
+  "main": "dist/main/_.js",
+  "author": "denvey <350132612@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron .",
+    "dev:ele": "node script/build --env=development --watch",
+    "build:ele": "node script/build --env=production",
+    "build": "rm -rf dist && npm run build:ele && electron-builder"
+  },
+  "build": {
+    "appId": "com.qqshsh.wolai",
+    "files": [
+      "!node_modules",
+      "dist/**"
+    ],
+    "mac": {
+      "icon": "icon.png",
+      "artifactName": "${productName}_setup_${version}.${ext}",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "icon": "icon.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}_setup_${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false
+    }
+  },
+  "dependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "chalk": "^4.1.0",
+    "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "electron": "9.1.0",
+    "electron-builder": "^22.8.0",
+    "electron-updater": "^4.3.5",
+    "electron-connect": "^0.6.3",
+    "electron-is-dev": "^1.2.0",
+    "electron-store": "^6.0.0",
+    "minimist": "^1.2.5",
+    "ora": "^5.0.0",
+    "rollup-plugin-esbuild": "^2.4.2",
+    "typescript": "^4.0.3",
+    "vite": "^1.0.0-rc.4",
+    "wait-on": "^5.2.0"
+  },
+  "keywords": [
+    "vite",
+    "electron",
+    "vue3",
+    "rollup"
+  ]
+}
